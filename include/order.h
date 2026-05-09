@@ -8,10 +8,10 @@ class Order{
         int id;
         int quantity;
         string side;
-        float price;
+        double price;
     
         public:
-            Order(int id, int quantity, string side, float price): id(id), quantity(quantity), side(side), price(price){
+            Order(int id, int quantity, string side, double price): id(id), quantity(quantity), side(side), price(price){
 
             }
         void displayOrder(){
