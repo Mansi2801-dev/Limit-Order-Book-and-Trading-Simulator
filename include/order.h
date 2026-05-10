@@ -11,7 +11,7 @@ class Order{
         double price;
     
         public:
-            Order(int id, int quantity, string side, double price): id(id), quantity(quantity), side(side), price(price){
+        Order(int id, int quantity, string side, double price): id(id), quantity(quantity), side(side), price(price){
 
             }
         void displayOrder(){
@@ -21,6 +21,10 @@ class Order{
             << " | Price: " << price
             << endl;
         }
+        double getPrice(){
+            return price;
+        }
+
 
         
 };
