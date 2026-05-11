@@ -24,6 +24,9 @@ class Order{
         double getPrice(){
             return price;
         }
+        string getSide(){
+            return side;
+        }
 
 
         
