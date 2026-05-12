@@ -13,7 +13,7 @@ class Order{
         public:
         Order(int id, int quantity, string side, double price): id(id), quantity(quantity), side(side), price(price){
 
-            }
+        }
         void displayOrder(){
             cout << "ID: " << id
             << " | Side: " << side
@@ -21,12 +21,20 @@ class Order{
             << " | Price: " << price
             << endl;
         }
-        double getPrice(){
+        double getPrice() const{
             return price;
         }
-        string getSide(){
+        string getSide() const{
             return side;
         }
+        int getId() const{
+            return id;
+        }
+        int getQuantity() const{
+            return quantity;
+        }
+        
+        
 
 
         
