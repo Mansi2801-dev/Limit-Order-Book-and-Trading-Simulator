@@ -17,7 +17,7 @@ int main(){
     Portfolio.emplace_back(2, 57, "BUY", 124);
     Portfolio.emplace_back(3, 4, "BUY", 57.84);
     Portfolio.emplace_back(4, 64, "BUY", 1000.6);
-    Portfolio.emplace_back(1, 34, "SELL", 12.4);
+    Portfolio.emplace_back(1, 44, "SELL", 12.4);
     Portfolio.emplace_back(2, 57, "SELL", 124);
     Portfolio.emplace_back(3, 4, "SELL", 57.84);
     Portfolio.emplace_back(4, 64, "SELL", 1000.6);
@@ -47,11 +47,29 @@ int main(){
     cout<<"This was Bidbook\n";
 
     if (bidBook[0].getPrice()>= askBook[0].getPrice()){
-            cout<<"Trade Executed\n";
-            cout<<"Buy Price:"<<bidBook[0].getPrice()<<endl;
-            cout<<"Sell Price:"<<askBook[0].getPrice();
+            int tradeQuantity = min(bidBook[0].getQuantity(), askBook[0].getQuantity());
+            cout << "Trade Executed\n";
+            cout << "Buy Order ID: "
+                << bidBook[0].getId() << endl;
+
+            cout << "Sell Order ID: "
+                << askBook[0].getId() << endl;
+
+            cout << "Trade Quantity: "
+                << tradeQuantity << endl;
+
+            cout << "Trade Price: "
+                << askBook[0].getPrice() << endl;
+            
+            bidBook[0].setQuantity(bidBook[0].getQuantity() - tradeQuantity);
+            askBook[0].setQuantity(askBook[0].getQuantity() - tradeQuantity);
+
+            cout<<"Buy Shares: "<<bidBook[0].getQuantity()<<endl;
+            cout<<"Sell Shares: "<<askBook[0].getQuantity()<<endl;
+            
 
     }
+
         
     
 

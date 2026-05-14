@@ -33,6 +33,10 @@ class Order{
         int getQuantity() const{
             return quantity;
         }
+        void setQuantity(int newQuantity){
+            quantity = newQuantity;
+        }
+
         
         
 
