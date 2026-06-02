@@ -16,7 +16,7 @@ int main(){
     Portfolio.emplace_back(1, 34, "BUY", 12.4);
     Portfolio.emplace_back(2, 57, "BUY", 124);
     Portfolio.emplace_back(3, 4, "BUY", 57.84);
-    Portfolio.emplace_back(4, 64, "BUY", 1000.6);
+    Portfolio.emplace_back(4, 44, "BUY", 1000.6);
     Portfolio.emplace_back(1, 44, "SELL", 12.4);
     Portfolio.emplace_back(2, 57, "SELL", 124);
     Portfolio.emplace_back(3, 4, "SELL", 57.84);
@@ -46,7 +46,7 @@ int main(){
     }
     cout<<"This was Bidbook\n";
 
-    if (bidBook[0].getPrice()>= askBook[0].getPrice()){
+    while (bidBook.size()>0 and askBook.size()>0 and bidBook[0].getPrice()>= askBook[0].getPrice() ){
             int tradeQuantity = min(bidBook[0].getQuantity(), askBook[0].getQuantity());
             cout << "Trade Executed\n";
             cout << "Buy Order ID: "
@@ -66,10 +66,28 @@ int main(){
 
             cout<<"Buy Shares: "<<bidBook[0].getQuantity()<<endl;
             cout<<"Sell Shares: "<<askBook[0].getQuantity()<<endl;
+
+            if (askBook[0].getQuantity() == 0) {
+                askBook.erase(askBook.begin());
+            }
+            cout << "\nAsk Book After Trade:\n";
+
+            for(int i = 0; i < askBook.size(); i++){
+                askBook[i].displayOrder();
+            }
+            if (bidBook[0].getQuantity() == 0) {
+                bidBook.erase(bidBook.begin());
+            }
+            cout << "\nBid Book After Trade:\n";
+
+            for(int i = 0; i < bidBook.size(); i++){
+                bidBook[i].displayOrder();
+            }
             
 
     }
-
+    
+    
         
     
 
