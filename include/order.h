@@ -9,9 +9,11 @@ class Order{
         int quantity;
         string side;
         double price;
+        long sequenceNumber;
+        static long nextSequenceNumber;
     
         public:
-        Order(int id, int quantity, string side, double price): id(id), quantity(quantity), side(side), price(price){
+        Order(int id, int quantity, string side, double price): id(id), quantity(quantity), side(side), price(price), sequenceNumber(nextSequenceNumber++){
 
         }
         void displayOrder(){
@@ -19,6 +21,7 @@ class Order{
             << " | Side: " << side
             << " | Quantity: " << quantity
             << " | Price: " << price
+            << " | Seq: "<< sequenceNumber
             << endl;
         }
         double getPrice() const{
@@ -36,10 +39,8 @@ class Order{
         void setQuantity(int newQuantity){
             quantity = newQuantity;
         }
-
-        
-        
-
-
-        
+        long getSequenceNumber() const{
+            return sequenceNumber;
+        }
 };
+long Order::nextSequenceNumber = 1;

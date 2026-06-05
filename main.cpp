@@ -4,9 +4,15 @@
 #include<algorithm>
 using namespace std;
 bool comp(const Order &a, const Order &b){
+    if(a.getPrice() == b.getPrice()){
+        return a.getSequenceNumber() < b.getSequenceNumber();
+    }
     return a.getPrice()>b.getPrice();
 }
 bool comp2(const Order &a, const Order &b){
+    if(a.getPrice() == b.getPrice()){
+        return a.getSequenceNumber() < b.getSequenceNumber();
+    }
     return a.getPrice()<b.getPrice();
 }
 int main(){
@@ -21,6 +27,8 @@ int main(){
     Portfolio.emplace_back(2, 57, "SELL", 124);
     Portfolio.emplace_back(3, 4, "SELL", 57.84);
     Portfolio.emplace_back(4, 64, "SELL", 1000.6);
+    Portfolio.emplace_back(10, 100, "BUY", 200);
+    Portfolio.emplace_back(11, 100, "BUY", 200);
 
     
     for(int i =0; i<Portfolio.size(); i++ ){
